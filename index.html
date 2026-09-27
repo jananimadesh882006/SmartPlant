@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPlant Care</title>
+    <meta name="description" content="Discover plants and manage your plant-care routines with SmartPlant Care.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-leaf"></i>
+            <span>SmartPlant</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" data-target="home" class="active">Home</a></li>
+            <li><a href="#" data-target="library">Plant Library</a></li>
+            <li><a href="#" data-target="my-plants">My Plants</a></li>
+            <li><a href="#" data-target="schedule">Care Schedule</a></li>
+            <li><a href="#" data-target="doctor">Plant Doctor</a></li>
+            <li><a href="#" data-target="articles">Tips</a></li>
+            <li><a href="#" data-target="about">About</a></li>
+        </ul>
+        <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+    </nav>
+
+    <main id="main-content">
+        <!-- Sections will be injected/shown here -->
+        
+        <!-- Home Section -->
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Your Journey to a <br><span class="highlight">Greener Life</span> Starts Here.</h1>
+                    <p>Discover beautiful plants, get personalized care schedules, and keep your indoor jungle thriving with our expert tools.</p>
+                    <button class="btn btn-primary" onclick="app.navigate('library')">Explore Plants</button>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1416879598555-3b918b958c2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Beautiful indoor plants">
+                </div>
+            </div>
+            
+            <div class="features-preview">
+                <h2>Why SmartPlant Care?</h2>
+                <div class="cards-grid">
+                    <div class="card feature-card">
+                        <i class="fa-solid fa-book-open"></i>
+                        <h3>Extensive Library</h3>
+                        <p>Browse hundreds of plants with detailed care guides tailored for beginners.</p>
+                    </div>
+                    <div class="card feature-card">
+                        <i class="fa-regular fa-calendar-check"></i>
+                        <h3>Smart Schedules</h3>
+                        <p>Never forget to water or fertilize again with custom reminders for each plant.</p>
+                    </div>
+                    <div class="card feature-card">
+                        <i class="fa-solid fa-stethoscope"></i>
+                        <h3>Plant Doctor</h3>
+                        <p>Diagnose issues instantly with our AI-powered plant health checker and chatbot.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="potd-section">
+                <h2>Plant of the Day</h2>
+                <div class="card potd-card">
+                    <img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Monstera Deliciosa">
+                    <div class="potd-info">
+                        <h3>Monstera Deliciosa</h3>
+                        <p>Known for its iconic split leaves, the Monstera is a tropical beauty that makes a bold statement in any room.</p>
+                        <div class="tags">
+                            <span class="tag"><i class="fa-solid fa-sun"></i> Bright Indirect</span>
+                            <span class="tag"><i class="fa-solid fa-droplet"></i> Medium Water</span>
+                            <span class="tag"><i class="fa-solid fa-seedling"></i> Beginner</span>
+                        </div>
+                        <button class="btn btn-outline">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plant Library Section -->
+        <section id="library" class="page-section">
+            <div class="section-header">
+                <h2>Plant Library</h2>
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" id="plant-search" placeholder="Search for plants...">
+                </div>
+                <div class="filters">
+                    <select id="filter-difficulty">
+                        <option value="all">Any Difficulty</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                    <select id="filter-light">
+                        <option value="all">Any Light</option>
+                        <option value="low">Low Light</option>
+                        <option value="bright">Bright Indirect</option>
+                        <option value="direct">Direct Sun</option>
+                    </select>
+                </div>
+            </div>
+            <div class="cards-grid" id="plant-library-grid">
+                <!-- Plants injected via JS -->
+            </div>
+        </section>
+
+        <!-- My Plants Section -->
+        <section id="my-plants" class="page-section">
+            <div class="section-header">
+                <h2>My Indoor Jungle</h2>
+                <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add Plant</button>
+            </div>
+            <div class="cards-grid" id="my-plants-grid">
+                <!-- User's plants injected via JS -->
+            </div>
+        </section>
+
+        <!-- Care Schedule Section -->
+        <section id="schedule" class="page-section">
+            <h2>Care Schedule</h2>
+            <div class="schedule-container">
+                <div class="schedule-day">
+                    <h3>Today</h3>
+                    <ul class="task-list" id="tasks-today">
+                        <li class="task-item">
+                            <div class="task-icon water"><i class="fa-solid fa-droplet"></i></div>
+                            <div class="task-details">
+                                <h4>Water Snake Plant</h4>
+                                <p>Soil is completely dry</p>
+                            </div>
+                            <button class="btn-check"><i class="fa-solid fa-check"></i></button>
+                        </li>
+                        <li class="task-item">
+                            <div class="task-icon mist"><i class="fa-solid fa-spray-can"></i></div>
+                            <div class="task-details">
+                                <h4>Mist Calathea</h4>
+                                <p>Needs high humidity</p>
+                            </div>
+                            <button class="btn-check"><i class="fa-solid fa-check"></i></button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="schedule-day">
+                    <h3>Tomorrow</h3>
+                    <ul class="task-list" id="tasks-tomorrow">
+                        <li class="task-item">
+                            <div class="task-icon fertilize"><i class="fa-solid fa-flask"></i></div>
+                            <div class="task-details">
+                                <h4>Fertilize Monstera</h4>
+                                <p>Monthly feeding</p>
+                            </div>
+                            <button class="btn-check"><i class="fa-solid fa-check"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plant Doctor Section -->
+        <section id="doctor" class="page-section">
+            <div class="doctor-container">
+                <div class="health-check">
+                    <h2>Symptom Checker</h2>
+                    <p>Select what's wrong with your plant:</p>
+                    <div class="symptom-tags">
+                        <span class="symptom-tag">Yellow Leaves</span>
+                        <span class="symptom-tag">Brown Tips</span>
+                        <span class="symptom-tag">Drooping</span>
+                        <span class="symptom-tag">Spots</span>
+                        <span class="symptom-tag">Pests</span>
+                    </div>
+                    <div id="diagnosis-result" class="diagnosis-card hidden">
+                        <h3>Diagnosis</h3>
+                        <p id="diagnosis-text"></p>
+                    </div>
+                </div>
+                
+                <div class="chatbot-interface">
+                    <div class="chat-header">
+                        <i class="fa-solid fa-robot"></i> <span>Plant Expert AI</span>
+                    </div>
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message bot">
+                            Hello! I'm your virtual plant doctor. How can I help your green friends today?
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chat-input" placeholder="Type your question...">
+                        <button id="chat-send"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Articles Section -->
+        <section id="articles" class="page-section">
+            <h2>Tips & Articles</h2>
+            <div class="cards-grid">
+                <div class="card article-card">
+                    <img src="https://images.unsplash.com/photo-1598531401211-131757820505?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Repotting">
+                    <div class="article-content">
+                        <h3>The Ultimate Guide to Repotting</h3>
+                        <p>Learn when and how to repot your plants without causing root shock.</p>
+                        <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card article-card">
+                    <img src="https://images.unsplash.com/photo-1545241047-6083a36ee214?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Watering">
+                    <div class="article-content">
+                        <h3>Overwatering vs Underwatering</h3>
+                        <p>How to tell the difference and save your dying houseplant.</p>
+                        <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="card article-card">
+                    <img src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Light">
+                    <div class="article-content">
+                        <h3>Understanding Light Requirements</h3>
+                        <p>What does "bright indirect light" actually mean? We break it down.</p>
+                        <a href="#" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="page-section">
+            <div class="about-content">
+                <h2>About SmartPlant Care</h2>
+                <p>Welcome to SmartPlant Care, the ultimate companion for plant lovers of all experience levels.</p>
+                <p>Created as a passionate project to combine technology with nature, our mission is to make plant care accessible, understandable, and enjoyable.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-num">500+</span>
+                        <span class="stat-label">Plant Species</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">10k+</span>
+                        <span class="stat-label">Happy Users</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">24/7</span>
+                        <span class="stat-label">Plant Doctor</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
